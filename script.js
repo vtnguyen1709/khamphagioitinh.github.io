@@ -115,36 +115,48 @@ document.querySelector(".submit-answer").addEventListener("click",function(){
 
 document.querySelector(".view-results").addEventListener("click",function(){
     document.querySelector(".quiz").style.display = "none";
+    if (navigator.userAgentData.mobile) {
+        let chartContainer = document.getElementById('chartContainer');
+        chartContainer.style.height = '200px';
+        chartContainer.style.marginTop = '270px';
+        chartContainer.style.maxWidth = "300px";
+        chartContainer.style.marginLeft = "-65px";
+
+        document.querySelector('.note').style.width = "100%";
+
+    }
+
+
     document.querySelector(".final-result").style.display="block";
     renderResult();
 
 });
 
 function renderResult() {
-    // var chart = new CanvasJS.Chart("chartContainer", {
-    //     animationEnabled: true,
-    //     title: {
-    //         text: ""
-    //     },
-    //     data: [{
-    //         type: "pie",
-    //         startAngle: 120,
-    //         yValueFormatString: "##",
-    //         indexLabel: "{label}",
-    //         dataPoints: [
-    //             // {y: SCORES["red"], label: "Red", color:"#FF0000"},
-    //             // {y: SCORES["yellow"], label: "Yellow", color: "#FFFF00"},
-    //             // {y: SCORES["blue"], label: "Blue", color: "#0000FF"},
-    //             // {y: SCORES["green"], label: "Green", color: "#008000"}
-    //             {y: SCORES["red"], label: "Dominance", color:"#EA2E25"},
-    //             {y: SCORES["yellow"], label: "Influence", color: "#FEC106"},
-    //             {y: SCORES["blue"], label: "Compliance", color: "#0071C1"},
-    //             {y: SCORES["green"], label: "Steadiness", color: "#008001"}
-    //         ]
-    //     }]
-    //
-    // });
-    // chart.render();
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+            text: ""
+        },
+        data: [{
+            type: "pie",
+            startAngle: 120,
+            yValueFormatString: "##",
+            indexLabel: "{label}",
+            dataPoints: [
+                // {y: SCORES["red"], label: "Red", color:"#FF0000"},
+                // {y: SCORES["yellow"], label: "Yellow", color: "#FFFF00"},
+                // {y: SCORES["blue"], label: "Blue", color: "#0000FF"},
+                // {y: SCORES["green"], label: "Green", color: "#008000"}
+                {y: SCORES["red"], label: "Dominance", color:"#EA2E25"},
+                {y: SCORES["yellow"], label: "Influence", color: "#FEC106"},
+                {y: SCORES["blue"], label: "Compliance", color: "#0071C1"},
+                {y: SCORES["green"], label: "Steadiness", color: "#008001"}
+            ]
+        }]
+
+    });
+    chart.render();
 }
 
 document.getElementById("restart").addEventListener("click",function(){
