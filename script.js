@@ -113,22 +113,36 @@ document.querySelector(".submit-answer").addEventListener("click",function(){
     document.querySelector('input[name="options"]:checked').checked = false
 });
 
-document.querySelector(".view-results").addEventListener("click",function(){
-    // document.querySelector(".quiz").style.display = "none";
-    if (navigator.userAgentData.mobile) {
-        // let chartContainer = document.getElementById('chartContainer');
-        // chartContainer.style.height = '200px';
-        // chartContainer.style.marginTop = '270px';
-        // chartContainer.style.maxWidth = "300px";
-        // chartContainer.style.marginLeft = "-65px";
+function iOS() {
+    return [
+            'iPad Simulator',
+            'iPhone Simulator',
+            'iPod Simulator',
+            'iPad',
+            'iPhone',
+            'iPod'
+        ].includes(navigator.platform)
+        // iPad on iOS 13 detection
+        || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
 
-        // document.querySelector('.note').style.width = "100%";
+document.querySelector(".view-results").addEventListener("click",function(){
+    document.querySelector(".quiz").style.display = "none";
+    if (iOS() || (navigator.userAgentData && navigator.userAgentData.mobile)) {
+        alert('is mobile');
+        let chartContainer = document.getElementById('chartContainer');
+        chartContainer.style.height = '200px';
+        chartContainer.style.marginTop = '270px';
+        chartContainer.style.maxWidth = "300px";
+        chartContainer.style.marginLeft = "-65px";
+
+        document.querySelector('.note').style.width = "100%";
 
     }
 
 
     document.querySelector(".final-result").style.display="block";
-    // renderResult();
+    renderResult();
 
 });
 
