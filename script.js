@@ -122,7 +122,7 @@ document.querySelector(".view-results").addEventListener("click",function(){
         // chartContainer.style.maxWidth = "300px";
         // chartContainer.style.marginLeft = "-65px";
 
-        document.querySelector('.note').style.width = "100%";
+        // document.querySelector('.note').style.width = "100%";
 
     }
 
