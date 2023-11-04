@@ -114,7 +114,7 @@ document.querySelector(".submit-answer").addEventListener("click",function(){
 });
 
 document.querySelector(".view-results").addEventListener("click",function(){
-    document.querySelector(".quiz").style.display = "none";
+    // document.querySelector(".quiz").style.display = "none";
     if (navigator.userAgentData.mobile) {
         // let chartContainer = document.getElementById('chartContainer');
         // chartContainer.style.height = '200px';
