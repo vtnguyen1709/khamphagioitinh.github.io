@@ -128,7 +128,7 @@ document.querySelector(".view-results").addEventListener("click",function(){
 
 
     document.querySelector(".final-result").style.display="block";
-    renderResult();
+    // renderResult();
 
 });
 
