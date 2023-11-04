@@ -122,6 +122,7 @@ function iOS() {
             'iPhone',
             'iPod'
         ].includes(navigator.platform)
+        || (navigator.userAgent.includes("iPhone"))
         // iPad on iOS 13 detection
         || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
@@ -129,10 +130,9 @@ function iOS() {
 document.querySelector(".view-results").addEventListener("click",function(){
     document.querySelector(".quiz").style.display = "none";
     if (iOS() || (navigator.userAgentData && navigator.userAgentData.mobile)) {
-        alert('is mobile');
         let chartContainer = document.getElementById('chartContainer');
-        chartContainer.style.height = '200px';
-        chartContainer.style.marginTop = '270px';
+        chartContainer.style.height = '150px';
+        chartContainer.style.marginTop = '200px';
         chartContainer.style.maxWidth = "300px";
         chartContainer.style.marginLeft = "-65px";
 
