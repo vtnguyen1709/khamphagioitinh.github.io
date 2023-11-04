@@ -72,7 +72,9 @@ document.querySelector(".quiz").style.display="none";
 document.querySelector(".final-result").style.display="none";
 
 
-document.querySelector(".choose-lang").addEventListener("click",function(){
+document.querySelector(".start-btn").addEventListener("click",function(){
+    document.getElementById('wrapper').style.display = 'none';
+
 
     document.getElementById("ques-left").textContent="Câu hỏi : " + (countQues+1) + "/" + CHOICES.length;
     document.querySelector(".quiz").style.display="block";
@@ -112,36 +114,37 @@ document.querySelector(".submit-answer").addEventListener("click",function(){
 });
 
 document.querySelector(".view-results").addEventListener("click",function(){
+    document.querySelector(".quiz").style.display = "none";
     document.querySelector(".final-result").style.display="block";
     renderResult();
 
 });
 
 function renderResult() {
-    var chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        title: {
-            text: ""
-        },
-        data: [{
-            type: "pie",
-            startAngle: 120,
-            yValueFormatString: "##",
-            indexLabel: "{label} {y}",
-            dataPoints: [
-                // {y: SCORES["red"], label: "Red", color:"#FF0000"},
-                // {y: SCORES["yellow"], label: "Yellow", color: "#FFFF00"},
-                // {y: SCORES["blue"], label: "Blue", color: "#0000FF"},
-                // {y: SCORES["green"], label: "Green", color: "#008000"}
-                {y: SCORES["red"], label: "Red", color:"#EA2E25"},
-                {y: SCORES["yellow"], label: "Yellow", color: "#FEC106"},
-                {y: SCORES["blue"], label: "Blue", color: "#0071C1"},
-                {y: SCORES["green"], label: "Green", color: "#008001"}
-            ]
-        }]
-
-    });
-    chart.render();
+    // var chart = new CanvasJS.Chart("chartContainer", {
+    //     animationEnabled: true,
+    //     title: {
+    //         text: ""
+    //     },
+    //     data: [{
+    //         type: "pie",
+    //         startAngle: 120,
+    //         yValueFormatString: "##",
+    //         indexLabel: "{label}",
+    //         dataPoints: [
+    //             // {y: SCORES["red"], label: "Red", color:"#FF0000"},
+    //             // {y: SCORES["yellow"], label: "Yellow", color: "#FFFF00"},
+    //             // {y: SCORES["blue"], label: "Blue", color: "#0000FF"},
+    //             // {y: SCORES["green"], label: "Green", color: "#008000"}
+    //             {y: SCORES["red"], label: "Dominance", color:"#EA2E25"},
+    //             {y: SCORES["yellow"], label: "Influence", color: "#FEC106"},
+    //             {y: SCORES["blue"], label: "Compliance", color: "#0071C1"},
+    //             {y: SCORES["green"], label: "Steadiness", color: "#008001"}
+    //         ]
+    //     }]
+    //
+    // });
+    // chart.render();
 }
 
 document.getElementById("restart").addEventListener("click",function(){
@@ -150,11 +153,11 @@ document.getElementById("restart").addEventListener("click",function(){
 
 
 /*Smooth Scroll*/
-$(document).on('click', 'a[href^="#"]', function (event) {
-    event.preventDefault();
-    $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top
-    }, 1000);
-
-});
+// $(document).on('click', 'a[href^="#"]', function (event) {
+//     event.preventDefault();
+//     $('html, body').animate({
+//         scrollTop: $($.attr(this, 'href')).offset().top
+//     }, 1000);
+//
+// });
 /*Smooth Scroll End*/
