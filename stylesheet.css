@@ -54,6 +54,11 @@ nav li{
     justify-content: center;
 }
 
+.question-text {
+    width: 50%;
+    margin: auto;
+}
+
 .start-btn{
     text-decoration: none;
     color: black;
@@ -147,6 +152,7 @@ nav li{
 /*    background-color: antiquewhite;*/
     font-family: 'Roboto Slab', sans-serif;
     letter-spacing: .13em;
+    display: inline-block;
 }
 .options{
     display: inline-block;
@@ -214,7 +220,7 @@ nav li{
 
 .choice {
     width: 95%;
-    height: 50%;
+    height: 40%;
 }
 
 /*Final Results*/
