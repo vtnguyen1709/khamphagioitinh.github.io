@@ -97,6 +97,15 @@ let SCORES = {
 document.querySelector(".view-results").style.display="none";
 document.querySelector(".quiz").style.display="none";
 document.querySelector(".final-result").style.display="none";
+if (iOS() || (navigator.userAgentData && navigator.userAgentData.mobile)) {
+    // let chartContainer = document.getElementById('chartContainer');
+    // chartContainer.style.height = '150px';
+    // chartContainer.style.marginTop = '200px';
+    // chartContainer.style.maxWidth = "300px";
+    // chartContainer.style.marginLeft = "-65px";
+    document.querySelector('.question').style.minHeight = '45%';
+
+}
 
 document.querySelector(".start-btn").addEventListener("click",function(){
     document.getElementById('wrapper').style.display = 'none';
@@ -156,15 +165,6 @@ function iOS() {
 
 document.querySelector(".view-results").addEventListener("click",function(){
     document.querySelector(".quiz").style.display = "none";
-    if (iOS() || (navigator.userAgentData && navigator.userAgentData.mobile)) {
-        // let chartContainer = document.getElementById('chartContainer');
-        // chartContainer.style.height = '150px';
-        // chartContainer.style.marginTop = '200px';
-        // chartContainer.style.maxWidth = "300px";
-        // chartContainer.style.marginLeft = "-65px";
-
-
-    }
 
     document.querySelector(".final-result").style.display="block";
     renderResult();
@@ -175,7 +175,7 @@ function renderResult() {
     var data = {
         labels: ["Sự tin tưởng", "Xung đột", "Kết quả", "Cam kết", "Trách nhiệm"],
         datasets: [{
-            label: 'Nhóm',
+            label: 'Điểm',
             fill: true,
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
