@@ -1,0 +1,279 @@
+
+:root {
+    --primary-color: #005061;
+    --text-color: rgb(0, 0, 0);
+}
+
+body {
+    width: 100%;
+    height: auto;
+    font-family: "SF Pro Display";
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../Quiz_files/bg.png);
+    background-color: rgb(179, 206, 233);
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    width: 100%;
+    padding: 0 85px;
+}
+
+header {
+    min-height: 70px;
+    display: grid;
+    place-content: center;
+    justify-content: start;
+    background: var(--primary-color);
+}
+
+.stepsBar {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.stepsBar .stepSingle {
+    width: 250px;
+    height: auto;
+    position: relative;
+}
+
+.stepSingle span {
+    border-radius: 50%;
+    background-color: rgb(179, 205, 232);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-content: center;
+    font-size: 24px;
+    font-family: "SF Pro Display";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.stepSingle .bar {
+    width: 100%;
+    border-radius: 5px;
+    background-color: rgb(188, 210, 234);
+    height: 12px;
+}
+
+.bar .fill {
+    width: 0%;
+    margin: 0 auto;
+    background-color: var(--primary-color);
+    border-radius: inherit;
+    height: 100%;
+    transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.active .bar .fill {
+    width: 100% !important;
+}
+
+.active span {
+    background-color: var(--primary-color);
+}
+
+.steps {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url(../Quiz_files/opBG.jpg);
+    background-size: cover;
+}
+
+.sideImg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+.sideImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+form {
+    width: 100%;
+}
+
+.question {
+    --left-minus: -25px;
+    background-color: rgb(59, 169, 186);
+    width: calc(100% - var(--left-minus));
+    height: 135px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    position: relative;
+    left: var(--left-minus);
+    padding: 0 40px;
+    font-size: 20px;
+    font-family: "SF Pro Display";
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.options .option {
+    position: relative;
+    display: grid;
+    place-content: center;
+    margin-top: 15px;
+    width: 51%;
+    height: 45px;
+    text-align: center;
+    margin-left: 15%;
+}
+
+.option::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgb(59, 169, 186);
+    width: 2px;
+    height: 30px;
+    z-index: 10;
+}
+
+.option.first-option::before {
+    top: -40px;
+    height: 40px;
+}
+
+.options input {
+    -webkit-appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgb(59, 169, 186);
+    cursor: pointer;
+    z-index: 20;
+    border: solid 2px transparent;
+
+    transition: 0.5s;
+}
+
+.option label {
+    font-size: 19px;
+    position: relative;
+    font-family: "SF Pro Display";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    z-index: 30;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.options input:checked {
+    border-color: var(--primary-color);
+}
+
+.options input:checked ~ label {
+    color: var(--primary-color);
+}
+
+footer {
+    min-height: 120px;
+    display: grid;
+    align-content: center;
+}
+
+.nextPrev {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.prev {
+    float: left;
+    border-radius: 15px;
+}
+.next {
+    float: right;
+    border-radius: 15px;
+}
+
+.nextPrev button {
+    background-color: rgb(255, 255, 255);
+    width: 215px;
+    height: 60px;
+    font-size: 20px;
+    color: rgb(124, 120, 120);
+    font-weight: bold;
+    border: 0;
+    text-transform: uppercase;
+}
+
+.nextPrev button.next {
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+}
+
+.nextPrev button.prev i {
+    margin-right: 10px;
+}
+
+.nextPrev button.next i {
+    margin-left: 10px;
+}
+
+.nextPrev button i {
+    transition: 0.5s;
+}
+
+.nextPrev button.prev:hover i {
+    transform: translateX(-10px);
+}
+
+.nextPrev button.next:hover i {
+    transform: translateX(10px);
+}
+
+#error {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000000000;
+}
+
+.stepBarArea {
+    min-height: 80px;
+    display: grid;
+    place-content: center;
+}
